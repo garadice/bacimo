@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Moja stránka</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-image: url('https://source.unsplash.com/1600x900/?office,workspace');
+      background-size: cover;
+      animation: slide 30s linear infinite;
+      filter: blur(5px);
+      opacity: 0.3;
+    }
+    @keyframes slide {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); }
+    }
+    .content {
+      position: relative;
+      z-index: 2;
+      color: #333;
+      text-align: center;
+      padding-top: 20%;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="content">
+    <h1>Vitajte na mojej stránke!</h1>
+    <p>Toto je moja jednoduchá firemná stránka.</p>
+  </div>
+
+  <script>
+    const bg = document.createElement('div');
+    bg = document.querySelector('.background');
+    bg.style.animation = 'move 60s linear infinite';
+    bg.style.backgroundSize = 'cover';
+    bg.style.filter = 'blur(6px) brightness(0.5)';
+    bg.style.backgroundPosition = 'center';
+    bg.style.backgroundRepeat = 'repeat-x';
+    bg.style.backgroundImage = 'url(https://source.unsplash.com/random/1920x1080?office)';
+    document.body.prepend(bg);
+
+    const keyframes = `
+      @keyframes move {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+      }`;
+
+    const style = document.createElement('style');
+    style.innerHTML = keyframes;
+    document.head.appendChild(style);
+</script>
+
+<div class="background"></div>
+<div class="content">
+  <h1>Vitajte na mojej stránke!</h1>
+  <p>Pripravujem obsah, čoskoro tu niečo pribudne.</p>
+</div>
+
+</body>
+</html>
