@@ -2,75 +2,72 @@
 <html lang="sk">
 <head>
   <meta charset="UTF-8">
-  <title>Moja stránka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Solutions for You</title>
+  <!-- Link na Google Font (Montserrat) -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* Základné nastavenia */
     body, html {
-      height: 100%;
-      overflow: hidden;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
     }
+    /* Pozadie so zadaným obrázkom */
     .background {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 200%;
+      width: 100%;
       height: 100%;
-      background-image: url('https://source.unsplash.com/1600x900/?office,workspace');
-      background-size: cover;
-      animation: slide 30s linear infinite;
-      filter: blur(5px);
-      opacity: 0.3;
+      /* Zmeň URL na obrázok kancelárie */
+      background: url('https://example.com/office.jpg') no-repeat center center/cover;
+      filter: blur(8px);
+      animation: moveLeft 60s linear infinite;
     }
-    @keyframes slide {
-      from { transform: translateX(0%); }
-      to { transform: translateX(-50%); }
+    /* Animácia posunu pozadia */
+    @keyframes moveLeft {
+      from { background-position: 0% center; }
+      to { background-position: -100% center; }
     }
+    /* Obsah v strede */
     .content {
-      position: relative;
-      z-index: 2;
-      color: #333;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      padding-top: 20%;
+      z-index: 1;
+    }
+    /* Štýl pre hlavnú nadpis */
+    .content h1 {
+      font-size: 4em;
+      margin: 0;
+      transition: filter 0.3s ease;
+    }
+    /* Efekt zosvetlenia pri hover */
+    .content h1:hover {
+      filter: brightness(1.2);
+    }
+    /* Štýl pre podnadpis */
+    .content h2 {
+      font-size: 2em;
+      margin: 10px 0 0;
     }
   </style>
 </head>
 <body>
   <div class="background"></div>
   <div class="content">
-    <h1>Vitajte na mojej stránke!</h1>
-    <p>Toto je moja jednoduchá firemná stránka.</p>
+    <h1>AI solutions for you</h1>
+    <h2>page in progress</h2>
   </div>
+</body>
+</html>
 
-  <script>
-    const bg = document.createElement('div');
-    bg = document.querySelector('.background');
-    bg.style.animation = 'move 60s linear infinite';
-    bg.style.backgroundSize = 'cover';
-    bg.style.filter = 'blur(6px) brightness(0.5)';
-    bg.style.backgroundPosition = 'center';
-    bg.style.backgroundRepeat = 'repeat-x';
-    bg.style.backgroundImage = 'url(https://source.unsplash.com/random/1920x1080?office)';
-    document.body.prepend(bg);
-
-    const keyframes = `
-      @keyframes move {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-50%); }
-      }`;
-
-    const style = document.createElement('style');
-    style.innerHTML = keyframes;
-    document.head.appendChild(style);
-</script>
-
-<div class="background"></div>
-<div class="content">
-  <h1>Vitajte na mojej stránke!</h1>
-  <p>Pripravujem obsah, čoskoro tu niečo pribudne.</p>
-</div>
 
 </body>
 </html>
